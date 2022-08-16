@@ -13,57 +13,48 @@ restaurants_list = ['chilis', 'texas roadhouse', 'olive garden', 'dave and buste
 transportation_list = ['train', 'airplane', 'personal vehicle', 'rental car', 'bus']
 entertainment_list = ['museum', 'football game', 'baseball game', 'theatre', 'theme park', 'nature park']
 
+def choose_random_element(my_list):
+    return ran_cho(my_list)
 
-def choosing_destination(destinations_list):
-    random_destination = ran_cho(destinations_list)
-    return random_destination
-
-def choosing_transportation(transportation_list):
-    random_transportation = ran_cho(transportation_list)
-    return random_transportation
-
-def choosing_restaurant(restaurants_list):
-    random_restaurant = ran_cho(restaurants_list)
-    return random_restaurant
-
-def choosing_entertainment(entertainment_list):
-    random_entertainment = ran_cho(entertainment_list)
-    return random_entertainment
-
+def string_updating_list(options):
+    destination = options[0]
+    transportation = options[1]
+    restaurant = options[2]
+    entertainment = options[3]
+    print(f'\tDestination: {destination.title()}\n\tMode of Transportation: {transportation.title()}\n\tRestaurant: {restaurant.title()}\n\tEntertainment: {entertainment.title()}')
+    
 def make_changes(chosen_options):
     user_input = input("What would you like to change?\n\t1 for Destination\n\t2 for Mode of Transportation\n\t3 for Restaurant\n\t4 for Entertainment\n\t0 to stop making changes\n")
+    if user_input == '0':
+        print(f'\nEnjoy your {chosen_options[1].title()} ride to {chosen_options[0].title()} where you will be visiting a {chosen_options[3].title()} and dining at {chosen_options[2].title()}!\n')
+        return
+
     if user_input == '1':
-        new_destination = choosing_destination(destinations_list)
-        chosen_options[0] = new_destination
-        print(f'\t**New Destination: {chosen_options[0].title()}\n\tMode of Transportation: {chosen_options[1].title()}\n\tRestaurant: {chosen_options[2].title()}\n\tEntertainment: {chosen_options[3].title()}')
+        chosen_options[0] = choose_random_element(destinations_list)
+        print(destinations_list)
+        string_updating_list(chosen_options)
         make_changes(chosen_options)
     elif user_input == '2':
-        new_transportation = choosing_transportation(transportation_list)
-        chosen_options[1] = new_transportation
-        print(f'\tDestination: {chosen_options[0].title()}\n\t**New Mode of Transportation: {chosen_options[1].title()}\n\tRestaurant: {chosen_options[2].title()}\n\tEntertainment: {chosen_options[3].title()}')
+        chosen_options[1] = choose_random_element(transportation_list)
+        string_updating_list(chosen_options)
         make_changes(chosen_options)
     elif user_input == '3':
-        new_restaurant = choosing_restaurant(restaurants_list)
-        chosen_options[2] = new_restaurant
-        print(f'\tDestination: {chosen_options[0].title()}\n\tMode of Transportation: {chosen_options[1].title()}\n\t**New Restaurant: {chosen_options[2].title()}\n\tEntertainment: {chosen_options[3].title()}')
+        chosen_options[2] = choose_random_element(restaurants_list)
+        string_updating_list(chosen_options)
         make_changes(chosen_options)
     elif user_input == '4':
-        new_entertainment = choosing_entertainment(entertainment_list)
-        chosen_options[3] = new_entertainment
-        print(f'\tDestination: {chosen_options[0].title()}\n\tMode of Transportation: {chosen_options[1].title()}\n\tRestaurant: {chosen_options[2].title()}\n\t**New Entertainment: {chosen_options[3].title()}')
         make_changes(chosen_options)
-    elif user_input == '0':
-        print(f'\nEnjoy your {chosen_options[1].title()} ride to {chosen_options[0].title()} where you will be visiting a {chosen_options[3].title()} and dining at {chosen_options[2].title()}!\n')
+        string_updating_list(chosen_options)
+        make_changes(chosen_options)
     else:
         print("Invalid entry. Please enter 1, 2, 3, 4, or 0.")
         make_changes(chosen_options)
 
-
 def main():
-    chosen_destination = choosing_destination(destinations_list)
-    chosen_transpotation = choosing_transportation(transportation_list)
-    chosen_restaurant = choosing_restaurant(restaurants_list)
-    chosen_entertainment = choosing_entertainment(entertainment_list)
+    chosen_destination = choose_random_element(destinations_list)
+    chosen_transpotation = choose_random_element(transportation_list)
+    chosen_restaurant = choose_random_element(restaurants_list)
+    chosen_entertainment = choose_random_element(entertainment_list)
     chosen_options = [chosen_destination, chosen_transpotation, chosen_restaurant, chosen_entertainment]
 
     print('\nRandomly Generated Trip:')
@@ -73,6 +64,5 @@ def main():
         make_changes(chosen_options)
     else:
         print(f'\nEnjoy your {chosen_options[1].title()} ride to {chosen_options[0].title()} where you will be visiting a {chosen_options[3].title()} and dining at {chosen_options[2].title()}!\n')
-
 
 main()
