@@ -16,16 +16,11 @@ https://github.com/NFMatten/DayTripGenerator.git
 
 
 
-1) Create a GitHub repository on GitHub. Remember to use a Python .gitignore and add a README!
-2) Clone your repository down to your computer (referring to the Code Demo – Source Control video would be helpful here!) 
-3) Create your project in Visual Studio Code and move the invisible .git folder and README file to the folder where your project is located.
-4) Make a test commit and check your repository to be sure the content has been updated!
-5) Start coding the program first by going from the top of the user stories and working down. Decide how you will:
-Store the trip options for destinations, restaurants, transportation, and entertainment each in their own List (this would be good to place at the top of the file)
-Set up a Dictionary to store each randomly selected option.
-Get a random element from each of those sets of options. We recommend declaring variables for a random destination, restaurant, transportation, and entertainment
-Display the initial random trip to your user
-Prompt the user to see if they are satisfied
-If not, find out which trip feature they want to change and randomly select a new feature.
-Keep doing this process until the user is satisfied with the trip
-Display the completed trip to the console.
+Start coding the program first by going from the top of the user stories and working down. Decide how you will:
+    a) Store the trip options for destinations, restaurants, transportation, and entertainment each in their own List (this would be good to place at the top of the file)
+    b) Get a random element from each of those sets of options. We recommend declaring variables for a random destination, restaurant, transportation, and entertainment
+    c) Display the initial random trip to your user
+    d) Prompt the user to see if they are satisfied
+    e) If not, find out which trip feature they want to change and randomly select a new feature.
+    f) Keep doing this process until the user is satisfied with the trip
+    g) Display the completed trip to the console.
