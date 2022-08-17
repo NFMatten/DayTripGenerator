@@ -13,10 +13,12 @@ restaurants_list = ['chilis', 'texas roadhouse', 'olive garden', 'dave and buste
 transportation_list = ['train', 'airplane', 'personal vehicle', 'rental car', 'bus']
 entertainment_list = ['museum', 'football game', 'baseball game', 'theatre', 'theme park', 'nature park']
 
-def choose_random_element(my_list):
-    return ran_cho(my_list)
+def choose_random_element(category_list):
+    # Purpose: takes in one of four above lists, randomly chooses (ran_cho) an element from list, returns element
+    return ran_cho(category_list)
 
 def string_updating_list(options):
+    # Purpose: Creates a string with updated values for day trip; takes in options_list, updates values, prints
     destination = options[0]
     transportation = options[1]
     restaurant = options[2]
@@ -24,11 +26,13 @@ def string_updating_list(options):
     print(f'\tDestination: {destination.title()}\n\tMode of Transportation: {transportation.title()}\n\tRestaurant: {restaurant.title()}\n\tEntertainment: {entertainment.title()}')
     
 def make_changes(chosen_options):
+    # Purpose: Checks if user wants to make changes to their options in day trip; makes changes if user wants
     user_input = input("What would you like to change?\n\t1 for Destination\n\t2 for Mode of Transportation\n\t3 for Restaurant\n\t4 for Entertainment\n\t0 to stop making changes\n")
+    # Purpose: Check first if user inputs 0; exits function without wasting computing time
     if user_input == '0':
         print(f'\nEnjoy your {chosen_options[1].title()} ride to {chosen_options[0].title()} where you will be visiting a {chosen_options[3].title()} and dining at {chosen_options[2].title()}!\n')
         return
-
+    # Purpose: If not 0, checks user selection, completes task
     if user_input == '1':
         chosen_options[0] = choose_random_element(destinations_list)
         print(destinations_list)
@@ -51,6 +55,7 @@ def make_changes(chosen_options):
         make_changes(chosen_options)
 
 def main():
+    # Purpose: Runs entire program; generates initial randomized lists; asks user if they are satisfied with their options
     chosen_destination = choose_random_element(destinations_list)
     chosen_transpotation = choose_random_element(transportation_list)
     chosen_restaurant = choose_random_element(restaurants_list)
