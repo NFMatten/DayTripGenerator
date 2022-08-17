@@ -27,9 +27,9 @@ def string_updating_list(options):
     
 def making_changes(user_input, chosen_options, category_list):
     # Purpose: Takes what user wants to change, makes the changes
-        chosen_options[user_input - 1] = choose_random_element(category_list)
-        string_updating_list(chosen_options)
-        selecting_changes(chosen_options)
+    chosen_options[user_input - 1] = choose_random_element(category_list)
+    string_updating_list(chosen_options)
+    selecting_changes(chosen_options)
 
 def selecting_changes(chosen_options):
     # Purpose: Checks if user wants to make changes to their options in day trip; makes changes if user wants
